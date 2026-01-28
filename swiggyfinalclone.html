@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Swiggy Home</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body{
+    background:#fff;
+     scroll-behavior: smooth;
+     font-family: Arial, sans-serif;
+  }
+
+  /* NAVBAR */
+  .navbar{
+    background:rgb(255,82,0);;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#fff;
+  }
+
+  .logo{
+    font-size:32px;
+    font-weight:bold;
+  }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    font-size:14px;
+  }
+
+  .nav-btn{
+    padding:8px 14px;
+    border-radius:20px;
+    border:1px solid #fff;
+    background:transparent;
+    color:#fff;
+    cursor:pointer;
+  }
+
+  .signin{
+    background:#000;
+    border:none;
+  }
+
+  /* HERO */
+  .hero{
+    background:rgb(255,82,0);;
+    color:#fff;
+    text-align:center;
+    padding:50px 20px 120px;
+    position:relative;
+  }
+
+  .hero h1{
+    font-size:36px;
+    max-width:700px;
+    margin:0 auto 25px;
+    line-height:1.3;
+  }
+
+  /* SEARCH BAR */
+  .search-bar{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:60px;
+    padding: 20px;
+  }
+
+  .search-bar input{
+    width:260px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+  }
+
+  .search-bar .search{
+    width:320px;
+  }
+
+  /* CARDS */
+  .cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    position:absolute;
+    left:50%;
+    bottom:-80px;
+    transform:translateX(-50%);
+    margin-top: 30px;
+    
+  }
+  .offer{
+    color:rgb(255,82,0);;
+    font-size:13px;
+    margin-top:6px;
+    font-weight:bold;
+  }
+
+  .arrow{
+    margin-top:20px;
+    width:35px;
+    height:35px;
+    background:rgb(255,82,0);;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+  }
+  /* FOOD OPTIONS SECTION */
+.food-slider-section{
+  padding:50px 70px;
+  background:#fff;
+}
+
+.food-title{
+  padding: 40px;
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.food-slider{
+  display:flex;
+  gap:40px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+
+.food-slider::-webkit-scrollbar{
+  height:6px;
+}
+
+.food-slider::-webkit-scrollbar-thumb{
+  background:#ccc;
+  border-radius:10px;
+}
+
+.food-item{
+  min-width:120px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.food-item img{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  object-fit:cover;
+  transition:transform 0.3s;
+}
+
+/*.food-item img:hover{
+  transform:scale(1.1);
+}*/
+
+.food-item p{
+  margin-top:10px;
+  font-size:14px;
+  font-weight:500;
+}
+ 
+
+  body{
+    background:#fff;
+  }
+
+  /* INSTAMART SECTION */
+  .instamart-section{
+    padding:40px 70px;
+  }
+
+  .instamart-title{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:35px;
+  }
+
+  .instamart-slider{
+    display:flex;
+    gap:30px;
+    overflow-x:auto;
+    padding-bottom:10px;
+  }
+
+  .instamart-slider::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .instamart-slider::-webkit-scrollbar-thumb{
+    background:#ccc;
+    border-radius:10px;
+  }
+
+  .instamart-card{
+    min-width:150px;
+    background:#f3f4f6;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+  }
+
+  /*.instamart-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  }*/
+
+  .instamart-card img{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    margin-bottom:10px;
+  }
+
+  .instamart-card p{
+    font-size:14px;
+    font-weight:600;
+  }
+  
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    padding: 30px;
+  }
+
+  /* Card container */
+  .card-container {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    
+  }
+
+  /* Individual card */
+  .card {
+    width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+
+  .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 12px;
+  }
+
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .rating {
+    background: #24963f;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+
+  .details {
+    font-size: 13px;
+    color: #666;
+    margin: 6px 0;
+  }
+
+  .price-distance {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 8px;
+  }
+
+  .offer {
+    background: #1aa79b;
+    color: #fff;
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .bank-offer {
+    background: #d7f1ee;
+    color: #00796b;
+    font-size: 12px;
+    padding: 6px;
+    border-radius: 6px;
+    text-align: center;
+  }
+/*locations*/
+
+  .section{
+    margin-bottom:50px;
+  }
+
+  .section h2{
+    font-size:20px;
+    margin-bottom:20px;
+    color:#222;
+  }
+
+  .cities{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:15px;
+  }
+
+  .city-box{
+    background:#fff;
+    border:1px solid #e0e0e0;
+    border-radius:10px;
+    padding:14px 10px;
+    text-align:center;
+    font-size:14px;
+    color:#333;
+    cursor:pointer;
+    transition:0.3s;
+  }
+
+  .city-box:hover{
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    border-color:rgb(255,82,0);;
+  }
+
+  .show-more{
+    color:rgb(255,82,0);;
+    font-weight:bold;
+    border:none;
+    background:#fff;
+  }
+  /*footer*/
+ .footer{
+  background:#f5f5f5;
+  padding:50px 80px;
+  color:#555;
+}
+
+.footer-top{
+  display:grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo img{
+  width:120px;
+  margin-bottom:10px;
+}
+
+.footer-logo p{
+  font-size:14px;
+}
+
+.footer h4{
+  font-size:15px;
+  margin-bottom:15px;
+  color:#000;
+}
+
+.footer ul{
+  list-style:none;
+  padding-left:10px;
+}
+
+.footer ul li{
+  margin-bottom:10px;
+  font-size:14px;
+  cursor:pointer;
+  padding-right: 10px;
+}
+
+.footer ul li:hover{
+  color:rgb(255,82,0);;
+}
+
+.city-select{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  width:120px;
+}
+
+.social-icons{
+  display:flex;
+  gap:12px;
+  font-size:18px;
+}
+
+.footer-line{
+  border-top:1px solid #ddd;
+  margin:40px 0;
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.app-buttons img{
+  height:45px;
+  margin-left:15px;
+}
+.left-img1{
+  height: 450px !important;
+    width: 250px !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+.right-img1{
+  height: 450px !important;
+    width: 250px !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* =======================
+   MOBILE PHONES
+   ======================= */
+@media (max-width: 576px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-bar input,
+  .search-bar .search {
+    width: 100%;
+  }
+
+  /* Hide side images */
+  .left-img1,
+  .right-img1 {
+    display: none;
+  }
+
+  /* Cards under hero */
+  .cards {
+    position: static;
+    transform: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  /* Sliders padding */
+  .food-slider-section,
+  .instamart-section {
+    padding: 20px;
+  }
+
+  /* Cities grid */
+  .cities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .app-buttons img {
+    margin: 6px;
+  }
+
+  /* App banner image */
+  img[alt="Get the Swiggy App banner"] {
+    padding: 10px;
+  }
+}
+
+/* =======================
+   TABLETS
+   ======================= */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .cities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =======================
+   SMALL LAPTOPS
+   ======================= */
+@media (max-width: 992px) {
+
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .food-slider-section,
+  .instamart-section {
+    padding: 30px;
+  }
+}
+
+ 
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo fw-bold"><h2>Swiggy</h2></div>
+  <div class="nav-right">
+    <span>Swiggy Corporate</span>
+    <span>Partner with us </span>
+    <button class="nav-btn">Get the App   <i class="bi bi-arrow-up-right"></i></button>
+    <button class="nav-btn signin">Sign in</button>
+     
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Order food & groceries. Discover best restaurants. Swiggy it!</h1>
+<img class="left-img1" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png" alt="left_img">
+<img class="right-img1" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png" alt="right_img">
+  <div class="search-bar">
+   
+   <input  type="text"  placeholder="Enter your delivery location" >
+    <input class="search" type="text" placeholder="Search for restaurant, item or more">
+  </div>
+  
+
+  <!-- CARDS -->
+  <div class="cards">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU.png" style="width:100%; height:250px; object-fit:contain">
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU.png"style="width:100%; height:250px; object-fit:contain">  
+  <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/23/b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU.png"style="width:100%; height:250px; object-fit:contain">
+ </div>
+</div>
+<div class="food-slider-section">
+  <div class="food-title">Order our best food options</div>
+
+  <div class="food-slider">
+
+    <div class="food-item">
+      <img src="https://images.news18.com/ibnlive/uploads/2024/12/news18-7-2024-12-3d767c63e4790a227257a634da4ce166.png">
+      <p>Biryani</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Dosa.png">
+      <p>Dosa</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/y4apgajsi8nsv5rfmddr">
+      <p>Cake</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/qm4qfd5esy1h0ryuhhy4">
+      <p>Idli</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Pizza.png">
+      <p>Pizza</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/rbekzotxfyjz5hflyfuu">
+      <p>Burger</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Noodles.png">
+      <p>Noodles</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Salad.png">
+      <p>Salad</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Tea.png">
+      <p>Tea</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Vada.png">
+      <p>Vada</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Paratha.png">
+      <p>Paratha</p>
+    </div>
+
+    <div class="food-item">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/PC_Mweb/Pastry.png">
+      <p>Pastry</p>
+    </div>
+
+  </div>
+</div>
+<div class="instamart-section">
+  <div class="row g-3">
+  <div class="instamart-title">Shop groceries on Instamart</div>
+
+  <div class="instamart-slider">
+    
+ <div class="col-md-3 col-sm-6">
+    <div class="instamart-card">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/kdtgxbqqaqgcwhfwwium">
+      <p>Fresh Vegetables</p>
+    </div>
+  </div>
+    
+ <div class="col-md-3 col-sm-6">
+    <div class="instamart-card">
+      <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/NI_CATALOG/IMAGES/CIW/2025/5/14/6dea6676-ce07-45e6-b60c-a099c01c5462_6d33297a-5828-48ff-aa2a-c052ae97669e">
+      <p>Dairy, Bread and Eggs</p>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <div class="instamart-card">
+      <img src="https://cdn.quicksell.co/-M8EPZhy-KV-3Y3hUjYs/products_400/-N2IH47VRsUE5UilA0lu.jpg">
+      <p>Sauces</p>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <div class="instamart-card">
+      <img src="https://instamart-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_272,w_252/NI_CATALOG/IMAGES/ciw/2025/12/18/0392bd31-f129-4cec-b322-a12b1444e9de_B79XVUCSU6_MN_18122025.png">
+      <p>Munchies</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="fw-bold">Discover best restaurants on Dineout</h2>
+
+<div class="card-container">
+
+  <!-- Card 1 -->
+  <div class="card">
+    <img src="https://up.yimg.com/ib/th/id/OIP.WhpYLoLUgmfecpyzdbygaQHaE8?pid=Api&rs=1&c=1&qlt=95&w=167&h=111">
+    <div class="card-body">
+      <div class="title-row">
+        <span class="title">The Waffle Co.</span>
+        <span class="rating">4.3</span>
+      </div>
+      <div class="details">Desserts<br>Himayath Nagar, Hyderabad</div>
+      <div class="price-distance">
+        <span>₹400 for two</span>
+        <span>5.1 km</span>
+      </div>
+      <div class="offer">Flat 25% off on pre-booking</div>
+      <div class="bank-offer">Up to 10% off with bank offers</div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <img src="https://up.yimg.com/ib/th/id/OIP.aULahN1LnhlTmcuM_DptkAHaE9?pid=Api&rs=1&c=1&qlt=95&w=157&h=105">
+    <div class="card-body">
+      <div class="title-row">
+        <span class="title">Abraj Fine Dining</span>
+        <span class="rating">4.3</span>
+      </div>
+      <div class="details">Chinese • Mughlai<br>Nampally, Hyderabad</div>
+      <div class="price-distance">
+        <span>₹1200 for two</span>
+        <span>1.2 km</span>
+      </div>
+      <div class="offer">Flat 15% off on pre-booking</div>
+      <div class="bank-offer">Up to 10% off with bank offers</div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.F1Vor3aq9p5WfXppf_RCnwHaEK?pid=Api&P=0&h=180">
+    <div class="card-body">
+      <div class="title-row">
+        <span class="title">Lacto Nile</span>
+        <span class="rating">3.2</span>
+      </div>
+      <div class="details">Pizza • Fast Food<br>Abids, Hyderabad</div>
+      <div class="price-distance">
+        <span>₹300 for two</span>
+        <span>2.7 km</span>
+      </div>
+      <div class="offer">Flat 15% off on walk-in</div>
+      <div class="bank-offer">Up to 10% off with bank offers</div>
+    </div>
+  </div>
+   <!-- Card 4 -->
+  <div class="card">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.PCuuQtjSCfmUZdPt6WohoQHaE8?pid=Api&P=0&h=180">
+    <div class="card-body">
+      <div class="title-row">
+        <span class="title">Grand Restaurant</span>
+        <span class="rating">3.7</span>
+      </div>
+      <div class="details">North Indian • Chinese<br>Nampally, Hyderabad</div>
+      <div class="price-distance">
+        <span>800 for two</span>
+        <span>2.9 km</span>
+      </div>
+      <div class="offer">Flat 10% off on walk-in</div>
+      <div class="bank-offer">Up to 10% off with bank offers</div>
+    </div>
+  </div>
+   <!-- Card 5 -->
+  <div class="card">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.bqTa4AUXIYqlnq6W9F8zAAHaE8?pid=Api&P=0&h=180">
+    <div class="card-body">
+      <div class="title-row">
+        <span class="title">Snack Smack</span>
+        <span class="rating">5.0</span>
+      </div>
+      <div class="details">CFast Food<br>Malkajgiri, Hyderabad</div>
+      <div class="price-distance">
+        <span>₹300 for two</span>
+        <span>3.4 km</span>
+      </div>
+      <div class="offer">Flat 10% off on walk-in</div>
+      <div class="bank-offer">Up to 10% off with bank offers</div>
+    </div>
+  </div>
+
+</div>
+  <img alt="Get the Swiggy App banner" style="object-fit:contain;height:100%;width:100%;padding:40px" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png">
+
+<!-- FOOD DELIVERY -->
+<div class="section">
+  <h2 class="fw-bold">Cities with food delivery</h2>
+
+  <div class="cities">
+    <div class="city-box">Order food online in Bangalore</div>
+    <div class="city-box">Order food online in Gurgaon</div>
+    <div class="city-box">Order food online in Hyderabad</div>
+    <div class="city-box">Order food online in Delhi</div>
+
+    <div class="city-box">Order food online in Mumbai</div>
+    <div class="city-box">Order food online in Pune</div>
+    <div class="city-box">Order food online in Kolkata</div>
+    <div class="city-box">Order food online in Chennai</div>
+
+    <div class="city-box">Order food online in Ahmedabad</div>
+    <div class="city-box">Order food online in Chandigarh</div>
+    <div class="city-box">Order food online in Jaipur</div>
+    <div class="city-box show-more">Show More ⌄</div>
+  </div>
+</div>
+
+<!-- GROCERY DELIVERY -->
+<div class="section">
+  <h2 class="fw-bold">Cities with grocery delivery</h2>
+
+  <div class="cities">
+    <div class="city-box">Order grocery delivery in Bangalore</div>
+    <div class="city-box">Order grocery delivery in Gurgaon</div>
+    <div class="city-box">Order grocery delivery in Hyderabad</div>
+    <div class="city-box">Order grocery delivery in Delhi</div>
+
+    <div class="city-box">Order grocery delivery in Mumbai</div>
+    <div class="city-box">Order grocery delivery in Pune</div>
+    <div class="city-box">Order grocery delivery in Kolkata</div>
+    <div class="city-box">Order grocery delivery in Chennai</div>
+
+    <div class="city-box">Order grocery delivery in Ahmedabad</div>
+    <div class="city-box">Order grocery delivery in Chandigarh</div>
+    <div class="city-box">Order grocery delivery in Jaipur</div>
+    <div class="city-box show-more">Show More ⌄</div>
+  </div>
+</div>
+<div class="footer">
+
+  <div class="footer-top">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <img src="https://media-assets.swiggy.com/portal/testing/seo-home/Group.svg">
+      <p>© 2025 Swiggy Limited</p>
+    </div>
+
+    <!-- COMPANY -->
+    <div>
+      <h4 >Company</h4>
+      <ul>
+        <li>About Us</li>
+        <li>Swiggy Corporate</li>
+        <li>Careers</li>
+        <li>Team</li>
+        <li>Swiggy One</li>
+        <li>Instamart</li>
+        <li>Dineout</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h4>Contact us</h4>
+      <ul>
+        <li>Help & Support</li>
+        <li>Partner with us</li>
+        <li>Ride with us</li>
+      </ul>
+
+      <h4 style="margin-top:20px;">Legal</h4>
+      <ul>
+        <li>Terms & Conditions</li>
+        <li>Cookie Policy</li>
+        <li>Privacy Policy</li>
+      </ul>
+    </div>
+
+    <!-- CITIES -->
+    <div>
+      <h4>Available in:</h4>
+      <ul>
+        <li>Bangalore</li>
+        <li>Gurgaon</li>
+        <li>Hyderabad</li>
+        <li>Delhi</li>
+        <li>Mumbai</li>
+        <li>Pune</li>
+      </ul>
+
+      <select class="city-select">
+        <option>685 cities</option>
+      </select>
+    </div>
+
+    <!-- SOCIAL -->
+    <div>
+      <h4>Life at Swiggy</h4>
+      <ul>
+        <li>Explore with Swiggy</li>
+        <li>Swiggy News</li>
+        <li>Snackables</li>
+      </ul>
+
+      <h4 style="margin-top:20px;">Social Links</h4>
+      <div class="social-icons">
+        <span><i class="bi bi-linkedin"></i></span>
+        <span><i class="bi bi-instagram"></i></span>
+        <span><i class="bi bi-facebook"></i></span>
+        <span><i class="bi bi-pinterest"></i></span>
+        <span><i class="bi bi-twitter"></i></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-line"></div>
+
+  <!-- DOWNLOAD -->
+  <div class="footer-bottom">
+    <h3>For better experience, download the Swiggy app now</h3>
+
+    <div class="app-buttons">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
